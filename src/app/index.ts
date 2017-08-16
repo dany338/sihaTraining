@@ -1,10 +1,15 @@
 import { bot } from "../initBot";
 
-bot.onText('message', (msg: any, match: any) => {
+export namespace SihaApp {
 
-    let messageOptions = {
-        parse_mode: 'HTML'
-    };
+    export namespace Mensajes {
+        bot.onText(/\/start/, (msg: any) => {
 
-    bot.sendMessage(msg.chat.id, `Hola <b>${msg.from.first_name}</b>`, messageOptions);
-});
+            let messageOptions = {
+                parse_mode: 'HTML'
+            };
+
+            bot.sendMessage(msg.chat.id, `Hola <b>${msg.from.first_name}</b>`, messageOptions);
+        });
+    }
+}
